@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: base-application
+    tty: true
+    image: akinbicer/oracle-jdk:21
+    pull_policy: build
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        JDK_VERSION: 21
+        TIMEZONE: Europe/Istanbul
+        LOCALE: tr_TR.UTF-8
+    volumes:
+      - .:/usr/src/app
